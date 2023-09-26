@@ -14,9 +14,9 @@
         font-family: 'Poppins', sans-serif;
     }
 </style>
-<body class="bg-green-300">
-    <div class="flex flex-col p-10 h-screen">
-        <form action="{{url('/login')}}" class="flex flex-col gap-2 bg-white rounded-md p-5 drop-shadow-2xl w-5/6 self-center mt-auto mb-auto text-sm mb-1/2 sm:w-[600px] sm:text-lg" method="post" enctype="multipart/form-data" novalidate>
+<body class="flex flex-col bg-green-300 h-screen">
+    <div class="flex flex-col gap-2 bg-white rounded-md p-5 drop-shadow-2xl self-center my-auto w-5/6 text-sm sm:w-[600px] sm:text-lg">
+        <form id="login" action="{{url('/login')}}" class="flex flex-col gap-2" method="post" enctype="multipart/form-data" novalidate>
             @csrf
                 <h1 class="text-center text-xl sm:text-2xl sm:m-4 font-bold">Form App</h1>
                 
@@ -31,12 +31,20 @@
                 @error('password')
                     <h5 class="text-red-400 font-thin text-sm mt-[-1rem]">{{ $message }}</h5>
                 @enderror
-
                 @error('credentials')
                     <h5 class="text-red-400 font-thin text-sm">{{ $message }}</h5>
                 @enderror
-                <input type="submit" class="bg-black rounded-md text-white w-1/2 h-10 self-center mt-5" value="Login">
         </form>
+        <form id="register" action="{{ url('register') }}" method="GET"></form>
+        @if ($message = session('success'))
+        <span class="flex flex-row bg-green-200 rounded-md ring-1 ring-green-900 text-green-900 p-4" onclick="">
+            {{ $message }} <button class="ml-auto font-extrabold" onclick="this.parentNode.remove()">X</button>
+        </span>
+        @endif
+        <div class="flex w-full gap-2">
+            <button type="submit" class="bg-black rounded-md text-white w-1/2 h-10 self-center mt-5" form="login">Login</button>
+            <button type="submit" class="bg-black rounded-md text-white w-1/2 h-10 self-center mt-5" form="register">Register</button>
+        </div>
     </div>
 </body>
 </html>

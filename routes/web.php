@@ -18,6 +18,10 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
+Route::get('test', function() {
+    return view('login')->with('success', 'Succesfuly registered!');
+});
+
 Route::group(['middleware' => 'auth'], function() {
     Route::get('/', function() {
         return redirect('/dashboard');

@@ -21,7 +21,7 @@
                 <h1 class="text-center text-xl sm:text-2xl sm:m-4 font-bold">Register</h1>
                 
                 <label for="name">Name</label>
-                <input type="text" name="name" class="rounded-md ring-gray-500 ring-2 p-2 bg-gray-100 drop-shadow-lg mb-4" value="{{old('name')}}" id="name">
+                <input type="text" name="name" class="rounded-md ring-gray-500 ring-2 p-2 bg-gray-100 drop-shadow-lg mb-4" value="{{old('name')}}" id="name" autocomplete="name">
                 @error('name')
                     <h5 class="text-red-400 font-thin text-sm mt-[-1rem]">{{ $message }}</h5>
                 @enderror
@@ -51,7 +51,6 @@
                 @error('photo')
                     <h5 class="text-red-400 font-thin text-sm">{{ $message }}</h5>
                 @enderror
-
                 <input type="submit" class="bg-black rounded-md text-white w-1/2 h-10 self-center mt-5" value="Submit">
         </form>
     </div>

@@ -19,12 +19,10 @@ class UserController extends Controller
         $request->validate([
             'name' => 'required',
             'email' => 'required|email|unique:users',
-            'password' => 'required',
+            'password' => 'required|min:4',
             'sussiness' => 'required',
-            'photo' => 'required|mimes:jpg,png,jpeg:size:max2048'
+            'photo' => 'required|mimes:jpg,png,jpeg|max:2048'
         ]);
-
-        // dd($request);
 
         $user = User::create([
             'name' => $request->name,
@@ -37,6 +35,6 @@ class UserController extends Controller
         $user->photo_url = url(Storage::url($path));
         $user->save();
 
-        return redirect('/login');
+        return redirect('login')->with('success', 'Succesfuly registered!');
     }
 }

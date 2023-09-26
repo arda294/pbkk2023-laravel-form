@@ -22,7 +22,7 @@
     </aside>
 
     <!-- main content -->
-    <div class="p-4">
+    <div class="overflow-scroll h-screen w-full">
         @yield('main')
     </div>
 </body>
