@@ -1,7 +1,9 @@
 <?php
 
+use App\Http\Controllers\AuthController;
 use App\Http\Controllers\FormController;
 use App\Http\Controllers\RandomController;
+use App\Http\Controllers\UserController;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Route;
 
@@ -16,9 +18,24 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
-Route::get('/', function () {
-    return view('welcome');
+Route::group(['middleware' => 'auth'], function() {
+    Route::get('/', function() {
+        return redirect('/dashboard');
+    });
+    
+    Route::get('dashboard', function () {
+        return view('dashboard.home');
+    });
+    
+    Route::get('profile', function() {
+        return view('dashboard.profile');
+    });
+
+    Route::post('logout', [AuthController::class, 'logout']);
 });
 
-Route::get('/form', [FormController::class, 'create']);
-Route::post('/form/submit', [FormController::class, 'store']);
+
+Route::get('login', [AuthController::class, 'login'])->name('login');
+Route::post('login', [AuthController::class, 'attemptLogin']);
+Route::get('register', [AuthController::class, 'register']);
+Route::post('register', [UserController::class, 'store']);

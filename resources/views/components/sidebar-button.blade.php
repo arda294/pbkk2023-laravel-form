@@ -1,0 +1,1 @@
+<a href="{{ url($url) }}" class=" {{ (request()->is($url)) ? 'ring-2' : ''}} bg-white rounded-md p-2 shadow-md">{{ $name }}</a>
