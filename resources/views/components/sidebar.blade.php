@@ -7,8 +7,8 @@
         <a href="{{ url('dashboard') }}" class="{{ (request()->is('dashboard')) ? 'bg-green-500' : 'bg-white'}} flex flex-row gap-2 rounded-xl p-2 shadow-md hover:ring-2 hover:ring-green-900">
             <x-heroicon-o-home class="w-5 h-auto"/> Home
         </a>
-        <a href="{{ url('profile') }}" class="{{ (request()->is('profile')) ? 'bg-green-500' : 'bg-white'}} flex flex-row gap-2 rounded-xl p-2 shadow-md hover:ring-2 hover:ring-green-900">
-            <x-heroicon-o-user-circle class="w-5 h-auto"/> Profile
+        <a href="{{ url('users') }}" class="{{ (request()->is('users')) ? 'bg-green-500' : 'bg-white'}} flex flex-row gap-2 rounded-xl p-2 shadow-md hover:ring-2 hover:ring-green-900">
+            <x-heroicon-o-user-circle class="w-5 h-auto"/> Users
         </a>
         <form action="{{ url('logout') }}" class="mt-auto self-center" method="POST">
             @csrf

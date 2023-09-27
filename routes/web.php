@@ -35,6 +35,8 @@ Route::group(['middleware' => 'auth'], function() {
         return view('dashboard.profile');
     });
 
+    Route::get('users', [UserController::class, 'index']);
+
     Route::post('logout', [AuthController::class, 'logout']);
 });
 

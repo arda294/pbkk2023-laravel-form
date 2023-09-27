@@ -9,6 +9,11 @@ use Illuminate\Support\Facades\Storage;
 
 class UserController extends Controller
 {
+    public function index()
+    {
+        return view('dashboard.users')->with('users', User::all());
+    }
+
     public function create()
     {
         return view('form');
