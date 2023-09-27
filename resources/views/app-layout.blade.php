@@ -14,12 +14,17 @@
     *{
         font-family: 'Poppins', sans-serif;
     }
+    @media only screen and (max-width: 640px) {
+        html {
+            font-size: 3.5vw;
+        }
+    }
 </style>
 <body class="flex flex-row">
     <!-- sidebar -->
-    <aside class="drop-shadow-lg">
+    <nav class="drop-shadow-lg">
         <x-sidebar></x-sidebar>
-    </aside>
+    </nav>
 
     <!-- main content -->
     <div class="overflow-scroll h-screen w-full">
