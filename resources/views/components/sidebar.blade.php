@@ -11,7 +11,7 @@
         transition: 0.2s
     }
 </style>
-<div class="flex flex-col bg-green-300 h-screen p-4 whitespace-[wrap]" id="sidebar">
+<div class="flex flex-col bg-green-300 h-screen p-4 whitespace-[wrap] z-50" id="sidebar">
     <span class="">
         <h1 class="mt-2 mb-4 font-extrabold text-center text-xl">Form App</h1>
         <div class="flex mb-2 whitespace-nowrap">
@@ -36,7 +36,6 @@
         </form>
     </nav>
 </div>
-
 <script>
     sidebar = document.getElementById('sidebar')
     sidebarOpen = document.getElementById('sidebar-open')
