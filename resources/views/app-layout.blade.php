@@ -22,12 +22,12 @@
 </style>
 <body class="flex flex-row">
     <!-- sidebar -->
-    <nav class="absolute z-10 drop-shadow-lg">
+    <nav class="absolute sm:relative z-10 drop-shadow-lg">
         <x-sidebar></x-sidebar>
     </nav>
 
     <!-- main content -->
-    <div class="relative z-0 pl-[5rem] overflow-scroll h-screen w-full">
+    <div class="relative z-0 pl-[5rem] sm:pl-0 overflow-scroll h-screen w-full">
         @yield('main')
     </div>
 </body>
